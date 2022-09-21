@@ -101,7 +101,7 @@ void Rubik::turnClockwise(Colors (*arr)[3]) {
 	arr[1][2] = buf;
 }
 
-void Rubik::turnСounterСlockwise(Colors (*arr)[3]) {
+void Rubik::turnCounterClockwise(Colors (*arr)[3]) {
 	Colors buf = arr[0][0];
 	arr[0][0] = arr[0][2];
 	arr[0][2] = arr[2][2];
@@ -251,7 +251,7 @@ void Rubik::twist_D_counter() {
 	_leftArray[2][0] = buf[0];
 	_leftArray[2][1] = buf[1];
 	_leftArray[2][2] = buf[2];
-	turnСounterСlockwise(_downArray);
+	turnCounterClockwise(_downArray);
 }
 
 void Rubik::twist_U_counter() {
@@ -271,7 +271,7 @@ void Rubik::twist_U_counter() {
 	_rightArray[0][0] = buf[0];
 	_rightArray[0][1] = buf[1];
 	_rightArray[0][2] = buf[2];
-	turnСounterСlockwise(_upArray);
+	turnCounterClockwise(_upArray);
 }
 
 void Rubik::twist_F_counter() {
@@ -291,7 +291,7 @@ void Rubik::twist_F_counter() {
 	_leftArray[0][2] = buf[2];
 	_leftArray[1][2] = buf[1];
 	_leftArray[2][2] = buf[0];
-	turnСounterСlockwise(_frontArray);
+	turnCounterClockwise(_frontArray);
 }
 
 void Rubik::twist_L_counter() {
@@ -311,7 +311,7 @@ void Rubik::twist_L_counter() {
 	_backArray[2][2] = buf[0];
 	_backArray[1][2] = buf[1];
 	_backArray[0][2] = buf[2];
-	turnСounterСlockwise(_leftArray);
+	turnCounterClockwise(_leftArray);
 }
 
 void Rubik::twist_R_counter() {
@@ -331,7 +331,7 @@ void Rubik::twist_R_counter() {
 	_frontArray[2][2] = buf[0];
 	_frontArray[1][2] = buf[1];
 	_frontArray[0][2] = buf[2];
-	turnСounterСlockwise(_rightArray);
+	turnCounterClockwise(_rightArray);
 }
 
 void Rubik::twist_B_counter() {
@@ -351,7 +351,7 @@ void Rubik::twist_B_counter() {
 	_rightArray[2][2] = buf[0];
 	_rightArray[1][2] = buf[1];
 	_rightArray[0][2] = buf[2];
-	turnСounterСlockwise(_backArray);
+	turnCounterClockwise(_backArray);
 }
 
 void Rubik::mix(vector<string> vec) {

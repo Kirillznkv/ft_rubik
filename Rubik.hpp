@@ -32,7 +32,7 @@ private:
 	void printMiddleSides() const;
 	void setColor(Colors color) const;
 	void turnClockwise(Colors (*arr)[3]);
-	void turnСounterСlockwise(Colors (*arr)[3]);
+	void turnCounterClockwise(Colors (*arr)[3]);
 public:
 	Rubik();
 	Rubik(const Rubik &copy);

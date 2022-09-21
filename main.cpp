@@ -13,13 +13,14 @@ int main(int argc, char *argv[]) {
 	istringstream f(str);
 	vector<string> vec;
 	while (getline(f, str, ' '))
-		if (str.empty() != true)
+		if (str.empty() == false)
 			vec.push_back(str);
 	Rubik cube;
 	cube.mix(vec);
-	cube.printCube();
-	// RubikCollector collector(cube);
-	// collector.collector();
-	// cout<<collector.getResult()<<endl;
+	RubikCollector collector(cube);
+	collector.printCube();
+	collector.collector();
+	cout<<collector.getResult()<<endl;
+	collector.printCube();
 	return 0;
 }
