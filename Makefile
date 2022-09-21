@@ -1,7 +1,9 @@
 FILES_SOURCE =	Rubik.cpp \
 				RubikCollector.cpp \
 				RubikCollector_checking.cpp \
+				RubikCollector_transform.cpp \
 				RubikCollector_firstCross.cpp \
+				RubikCollector_firstCorner.cpp \
 				main.cpp
 
 .PHONY: build

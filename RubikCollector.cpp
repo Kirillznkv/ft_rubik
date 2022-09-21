@@ -16,4 +16,5 @@ void RubikCollector::printCube() const {
 
 void RubikCollector::collector() {
 	collectFirstCross();
+	collectFirstCorner();
 }
