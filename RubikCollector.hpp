@@ -21,6 +21,7 @@ private:
 	bool	checkUpEdge(Colors (*side)[3], Colors color);
 	bool	checkDownEdge(Colors (*side)[3], Colors color);
 	//
+	bool	checkCorrectUpCorner();
 	bool	checkCorner(Colors (*side)[3]);
 	bool	checkLUCorner(Colors (*side)[3], Colors color);
 	bool	checkRUCorner(Colors (*side)[3], Colors color);
@@ -43,6 +44,7 @@ private:
 	int		newPos_RD();
 	int		newPos_LU();
 	int		newPos_RU();
+	void	correctCorner();
 	void	collectFirstCorner();
 	void	collectFirstCorner_1();
 	void	collectFirstCorner_2();

@@ -24,6 +24,22 @@ bool	RubikCollector::checkDownEdge(Colors (*side)[3], Colors color) {
     return side[2][1] == color;
 }
 
+bool	RubikCollector::checkCorrectUpCorner() {
+	if (checkLUCorner(_rubik._frontArray, Colors::Green) == false) {
+		return false;
+	}
+	if (checkRUCorner(_rubik._frontArray, Colors::Green) == false) {
+		return false;
+	}
+	if (checkLUCorner(_rubik._backArray, Colors::Blue) == false) {
+		return false;
+	}
+	if (checkRUCorner(_rubik._backArray, Colors::Blue) == false) {
+		return false;
+	}
+	return true;
+}
+
 bool	RubikCollector::checkCorner(Colors (*side)[3]) {
     Colors color = side[1][1];
     return  checkLUCorner(side, color) && \
