@@ -105,3 +105,20 @@ int		RubikCollector::checkPreLastCross() {
 	}
 	return 0;
 }
+
+bool	RubikCollector::checkCornerDone() {
+	return	checkLDCorner(_rubik._frontArray, Colors::Green) && \
+			checkRDCorner(_rubik._frontArray, Colors::Green) && \
+			checkLDCorner(_rubik._rightArray, Colors::Red) && \
+			checkRDCorner(_rubik._rightArray, Colors::Red) && \
+			checkLDCorner(_rubik._backArray, Colors::Blue) && \
+			checkRDCorner(_rubik._backArray, Colors::Blue) && \
+			checkLDCorner(_rubik._leftArray, Colors::Orange) && \
+			checkRDCorner(_rubik._leftArray, Colors::Orange);
+}
+bool	RubikCollector::checkThreeCorner() {
+	return	checkLDCorner(_rubik._frontArray, Colors::Green) || \
+			checkRDCorner(_rubik._frontArray, Colors::Green) || \
+			checkLDCorner(_rubik._backArray, Colors::Blue) || \
+			checkRDCorner(_rubik._backArray, Colors::Blue);
+}

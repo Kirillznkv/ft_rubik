@@ -32,6 +32,9 @@ private:
 	int		checkEdgeFor_2layer();
 	//
 	int		checkPreLastCross();
+	//
+	bool	checkCornerDone();
+	bool	checkThreeCorner();
 	//----Transform----//
 	void	transformToRight(vector<string> cmds);
 	void	transformToLeft(vector<string> cmds);
@@ -68,6 +71,9 @@ private:
 	void	lineCross();
 	void	dawCross();
 	int		num_correctEdge_Down();
+	//
+	void	collectLastCorner();
+	void	correctLastCorner();
 public:
 	RubikCollector(Rubik rubik);
 	~RubikCollector();
