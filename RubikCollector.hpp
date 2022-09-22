@@ -49,6 +49,10 @@ private:
 	int		newPos_RD();
 	int		newPos_LU();
 	int		newPos_RU();
+	int		newPos_LD_bug();
+	int		newPos_RD_bug();
+	int		newPos_LU_bug();
+	int		newPos_RU_bug();
 	void	correctCorner();
 	void	collectFirstCorner();
 	void	collectFirstCorner_1();
@@ -63,6 +67,7 @@ private:
 	void	correctLastCross();
 	void	lineCross();
 	void	dawCross();
+	int		num_correctEdge_Down();
 public:
 	RubikCollector(Rubik rubik);
 	~RubikCollector();

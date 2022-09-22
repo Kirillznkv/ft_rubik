@@ -12,6 +12,7 @@ void RubikCollector::collectLastCross() {
 			dawCross();
 		}
 	}
+	correctLastCross();
 }
 
 void RubikCollector::lineCross() {
@@ -46,6 +47,44 @@ void RubikCollector::dawCross() {
 	}
 }
 
-void RubikCollector::correctLastCross() {
+int RubikCollector::num_correctEdge_Down() {
+    int res = 0;
+    if (checkDownEdge(_rubik._frontArray, Colors::Green))
+        res++;
+    if (checkDownEdge(_rubik._rightArray, Colors::Red))
+        res++;
+    if (checkDownEdge(_rubik._backArray, Colors::Blue))
+        res++;
+    if (checkDownEdge(_rubik._leftArray, Colors::Orange))
+        res++;
+    return res;
+}
 
+void RubikCollector::correctLastCross() {
+    if (num_correctEdge_Down() < 2) {
+		_rubik.twist_D();
+         if (num_correctEdge_Down() < 2) {
+             _rubik.twist_D();
+             if (num_correctEdge_Down() < 2) {
+                _rubik.twist_D();
+                _res += "D' ";
+             } else {
+                 _res += "D2 ";
+             }
+         } else {
+             _res += "D ";
+         }
+    }
+    if (num_correctEdge_Down() != 4) {
+		vector<string> swapEdge{"L", "D", "L'", "D", "L", "D2", "L'", "D"};
+		if (checkDownEdge(_rubik._frontArray, Colors::Red)) {
+			transformNormal(swapEdge);
+		} else if (checkDownEdge(_rubik._rightArray, Colors::Blue)) {
+			transformToRight(swapEdge);
+		} else if (checkDownEdge(_rubik._backArray, Colors::Orange)) {
+			transformToBack(swapEdge);
+		} else if (checkDownEdge(_rubik._leftArray, Colors::Green)) {
+			transformToLeft(swapEdge);
+		}
+    }
 }

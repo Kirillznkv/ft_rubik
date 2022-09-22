@@ -6,7 +6,7 @@ void RubikCollector::collectFirstCorner() {
 		collectFirstCorner_2();
 		collectFirstCorner_3();
 	}
-    correctCorner();
+	correctCorner();
 }
 
 void RubikCollector::correctCorner() {
@@ -163,6 +163,86 @@ int RubikCollector::newPos_RU() {
     return 0;
 }
 
+int RubikCollector::newPos_LD_bug() {
+    if (checkLUCorner(_rubik._upArray, Colors::White)) {
+        if (checkLDCorner(_rubik._upArray, Colors::White) == false) {
+            _rubik.twist_U();
+			_res += "U ";
+            return 1;
+        } else if (checkRUCorner(_rubik._upArray, Colors::White) == false) {
+            _rubik.twist_U_counter();
+			_res += "U' ";
+            return 2;
+        } else if (checkRDCorner(_rubik._upArray, Colors::White) == false) {
+            _rubik.twist_U();
+            _rubik.twist_U();
+			_res += "U2 ";
+            return 3;
+        }
+    }
+    return 0;
+}
+
+int RubikCollector::newPos_RD_bug() {
+    if (checkRUCorner(_rubik._upArray, Colors::White)) {
+        if (checkLUCorner(_rubik._upArray, Colors::White) == false) {
+            _rubik.twist_U();
+			_res += "U ";
+            return 1;
+        } else if (checkRDCorner(_rubik._upArray, Colors::White) == false) {
+            _rubik.twist_U_counter();
+			_res += "U' ";
+            return 2;
+        } else if (checkLDCorner(_rubik._upArray, Colors::White) == false) {
+            _rubik.twist_U();
+            _rubik.twist_U();
+			_res += "U2 ";
+            return 3;
+        }
+    }
+    return 0;
+}
+
+int RubikCollector::newPos_LU_bug() {
+    if (checkLDCorner(_rubik._upArray, Colors::White)) {
+        if (checkRDCorner(_rubik._upArray, Colors::White) == false) {
+            _rubik.twist_U();
+			_res += "U ";
+            return 1;
+        } else if (checkLUCorner(_rubik._upArray, Colors::White) == false) {
+            _rubik.twist_U_counter();
+			_res += "U' ";
+            return 2;
+        } else if (checkRUCorner(_rubik._upArray, Colors::White) == false) {
+            _rubik.twist_U();
+            _rubik.twist_U();
+			_res += "U2 ";
+            return 3;
+        }
+    }
+    return 0;
+}
+
+int RubikCollector::newPos_RU_bug() {
+    if (checkRDCorner(_rubik._upArray, Colors::White)) {
+        if (checkRUCorner(_rubik._upArray, Colors::White) == false) {
+            _rubik.twist_U();
+			_res += "U ";
+            return 1;
+        } else if (checkLDCorner(_rubik._upArray, Colors::White) == false) {
+            _rubik.twist_U_counter();
+			_res += "U' ";
+            return 2;
+        } else if (checkLUCorner(_rubik._upArray, Colors::White) == false) {
+            _rubik.twist_U();
+            _rubik.twist_U();
+			_res += "U2 ";
+            return 3;
+        }
+    }
+    return 0;
+}
+
 void RubikCollector::collectFirstCorner_2() {
     vector<string> leftPoint{"F'", "D'", "F"};
     vector<string> rightPoint{"F", "D", "F'"};
@@ -212,16 +292,16 @@ void RubikCollector::collectFirstCorner_3() {
 
     int flag = 0; // 1-U    2-U'    3-U2
     if (checkLUCorner(_rubik._downArray, Colors::White)) {
-        flag = newPos_LU();
+        flag = newPos_LU_bug();
         transformNormal(cmds);
     } else if (checkRUCorner(_rubik._downArray, Colors::White)) {
-        flag = newPos_RU();
+        flag = newPos_RU_bug();
         transformToRight(cmds);
     } else if (checkRDCorner(_rubik._downArray, Colors::White)) {
-        flag = newPos_RD();
+        flag = newPos_RD_bug();
         transformToBack(cmds);
     } else if (checkLDCorner(_rubik._downArray, Colors::White)) {
-        flag = newPos_LD();
+        flag = newPos_LD_bug();
         transformToLeft(cmds);
     }
 
