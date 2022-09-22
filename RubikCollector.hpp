@@ -29,7 +29,7 @@ private:
 	bool	checkRDCorner(Colors (*side)[3], Colors color);
 	//
 	bool	checkCorrect_2layer();
-	int		checkCrossFor_2layer();
+	int		checkEdgeFor_2layer();
 	//----Transform----//
 	void	transformToRight(vector<string> cmds);
 	void	transformToLeft(vector<string> cmds);
@@ -55,7 +55,9 @@ private:
 	//
 	void	collectSecondLayer();
 	void	collectSecondLayerFromThird();
-	void	breakCrossFromSecondLayer();
+	void	breakEdgeFromSecondLayer();
+	//
+	void	collectLastCross();
 public:
 	RubikCollector(Rubik rubik);
 	~RubikCollector();

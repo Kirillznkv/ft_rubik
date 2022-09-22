@@ -75,7 +75,7 @@ bool	RubikCollector::checkCorrect_2layer() {
 			checkRightEdge(_rubik._leftArray, Colors::Orange);
 }
 
-int		RubikCollector::checkCrossFor_2layer() {
+int		RubikCollector::checkEdgeFor_2layer() {
 	if (!checkDownEdge(_rubik._frontArray, Colors::Yellow) && !checkUpEdge(_rubik._downArray, Colors::Yellow)) {
 		return 1;
 	}

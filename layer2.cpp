@@ -2,11 +2,11 @@
 
 void RubikCollector::collectSecondLayer() {
 	while (checkCorrect_2layer() == false) {
-		while (checkCrossFor_2layer()) {
+		while (checkEdgeFor_2layer()) {
 			collectSecondLayerFromThird();
 		}
 		if (!checkCorrect_2layer()) {
-			breakCrossFromSecondLayer();
+			breakEdgeFromSecondLayer();
 		}
 	}
 }
@@ -15,7 +15,7 @@ void RubikCollector::collectSecondLayerFromThird() {
 	vector<string> toL{"D", "L", "D'", "L'", "D'", "F'", "D", "F"};
 	vector<string> toR{"D'", "R'", "D", "R", "D", "F", "D'", "F'"};
 	
-	int idSide = checkCrossFor_2layer();
+	int idSide = checkEdgeFor_2layer();
 	if (idSide == 2) {
 		_rubik.twist_D_counter();
 		_res += "D' ";
@@ -62,7 +62,7 @@ void RubikCollector::collectSecondLayerFromThird() {
 	}
 }
 
-void RubikCollector::breakCrossFromSecondLayer() {
+void RubikCollector::breakEdgeFromSecondLayer() {
 	vector<string> breakRight{"R'", "D'", "R", "D", "F", "D", "F'"};
 
 	if (checkRightEdge(_rubik._frontArray, Colors::Red)) {
