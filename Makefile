@@ -1,9 +1,10 @@
 FILES_SOURCE =	Rubik.cpp \
 				RubikCollector.cpp \
-				RubikCollector_checking.cpp \
-				RubikCollector_transform.cpp \
-				RubikCollector_firstCross.cpp \
-				RubikCollector_firstCorner.cpp \
+				checking.cpp \
+				transform.cpp \
+				firstCross.cpp \
+				firstCorner.cpp \
+				layer2.cpp \
 				main.cpp
 
 .PHONY: build

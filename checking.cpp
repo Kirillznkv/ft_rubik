@@ -63,3 +63,30 @@ bool	RubikCollector::checkLDCorner(Colors (*side)[3], Colors color) {
 bool	RubikCollector::checkRDCorner(Colors (*side)[3], Colors color) {
     return side[2][2] == color;
 }
+
+bool	RubikCollector::checkCorrect_2layer() {
+	return	checkLeftEdge(_rubik._frontArray, Colors::Green) && \
+			checkRightEdge(_rubik._frontArray, Colors::Green) && \
+			checkLeftEdge(_rubik._rightArray, Colors::Red) && \
+			checkRightEdge(_rubik._rightArray, Colors::Red) && \
+			checkLeftEdge(_rubik._backArray, Colors::Blue) && \
+			checkRightEdge(_rubik._backArray, Colors::Blue) && \
+			checkLeftEdge(_rubik._leftArray, Colors::Orange) && \
+			checkRightEdge(_rubik._leftArray, Colors::Orange);
+}
+
+int		RubikCollector::checkCrossFor_2layer() {
+	if (!checkDownEdge(_rubik._frontArray, Colors::Yellow) && !checkUpEdge(_rubik._downArray, Colors::Yellow)) {
+		return 1;
+	}
+	if (!checkDownEdge(_rubik._rightArray, Colors::Yellow) && !checkRightEdge(_rubik._downArray, Colors::Yellow)) {
+		return 2;
+	}
+	if (!checkDownEdge(_rubik._backArray, Colors::Yellow) && !checkDownEdge(_rubik._downArray, Colors::Yellow)) {
+		return 3;
+	}
+	if (!checkDownEdge(_rubik._leftArray, Colors::Yellow) && !checkLeftEdge(_rubik._downArray, Colors::Yellow)) {
+		return 4;
+	}
+	return 0;
+}
