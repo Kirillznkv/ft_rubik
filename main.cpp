@@ -15,12 +15,22 @@ int main(int argc, char *argv[]) {
 	while (getline(f, str, ' '))
 		if (str.empty() == false)
 			vec.push_back(str);
+
 	Rubik cube;
 	cube.mix(vec);
+
 	RubikCollector collector(cube);
-	collector.printCube();
 	collector.collector();
-	cout<<collector.getResult()<<endl;
-	collector.printCube();
+	string res = collector.getResult();
+
+	cube.printCube();
+	cout<<res<<endl;
+	istringstream ff(res);
+	vector<string> v;
+	while (getline(ff, res, ' '))
+		if (res.empty() == false)
+			v.push_back(res);
+	cube.mix(v);
+	cube.printCube();
 	return 0;
 }
