@@ -5,6 +5,7 @@ FILES_SOURCE =	Rubik.cpp \
 				firstCross.cpp \
 				firstCorner.cpp \
 				layer2.cpp \
+				lastCross.cpp \
 				main.cpp
 
 .PHONY: build

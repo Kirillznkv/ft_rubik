@@ -30,6 +30,8 @@ private:
 	//
 	bool	checkCorrect_2layer();
 	int		checkEdgeFor_2layer();
+	//
+	int		checkPreLastCross();
 	//----Transform----//
 	void	transformToRight(vector<string> cmds);
 	void	transformToLeft(vector<string> cmds);
@@ -41,7 +43,7 @@ private:
 	void	collectFirstCross_2Layer();
 	void	collectFirstCross_3Layer();
 	int		num_correctEdge_Up();
-	void	correctCross();
+	void	correctFirstCross();
 	//
 	int		newPos_LD();
 	int		newPos_RD();
@@ -58,6 +60,9 @@ private:
 	void	breakEdgeFromSecondLayer();
 	//
 	void	collectLastCross();
+	void	correctLastCross();
+	void	lineCross();
+	void	dawCross();
 public:
 	RubikCollector(Rubik rubik);
 	~RubikCollector();

@@ -18,4 +18,5 @@ void RubikCollector::collector() {
 	collectFirstCross();
 	collectFirstCorner();
 	collectSecondLayer();
+	collectLastCross();
 }

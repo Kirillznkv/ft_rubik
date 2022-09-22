@@ -6,7 +6,7 @@ void RubikCollector::collectFirstCross() {
 		collectFirstCross_2Layer();
 		collectFirstCross_3Layer();
 	}
-    correctCross();
+    correctFirstCross();
 }
 
 void RubikCollector::collectFirstCross_1Layer() {
@@ -322,7 +322,7 @@ int RubikCollector::num_correctEdge_Up() {
     return res;
 }
 
-void RubikCollector::correctCross() {
+void RubikCollector::correctFirstCross() {
     if (num_correctEdge_Up() < 2) {
 		_rubik.twist_U();
          if (num_correctEdge_Up() < 2) {

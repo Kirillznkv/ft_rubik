@@ -90,3 +90,18 @@ int		RubikCollector::checkEdgeFor_2layer() {
 	}
 	return 0;
 }
+
+int		RubikCollector::checkPreLastCross() {
+	if (checkUpEdge(_rubik._downArray, Colors::Yellow) || checkDownEdge(_rubik._downArray, Colors::Yellow)) {
+		if (checkLeftEdge(_rubik._downArray, Colors::Yellow) || checkRightEdge(_rubik._downArray, Colors::Yellow))
+			return 2;
+		else
+			return 1;
+	} else if (checkRightEdge(_rubik._downArray, Colors::Yellow) || checkLeftEdge(_rubik._downArray, Colors::Yellow)) {
+		if (checkUpEdge(_rubik._downArray, Colors::Yellow) || checkDownEdge(_rubik._downArray, Colors::Yellow))
+			return 2;
+		else
+			return 1;
+	}
+	return 0;
+}
